@@ -15,7 +15,7 @@ const Navbar = () => {
   
   return (
     
-    <div className="container px-4 py-4 ">
+    <div className="container px-4 py-4 overflow-clip">
 
     <div className="hidden md:block lg:">
       <h1>Medium</h1>
@@ -36,7 +36,7 @@ const Navbar = () => {
           </div>
       </div>
       {active && 
-      <div className="w-48 float-right mt-6 bg-purple-400 rounded-md ">
+      <div className="absolute w-48  left-full mt-6 bg-purple-400 rounded-md z-10 ">
         <ul className='flex flex-col text-md text-white font-bold space-x-1'>
           <Link to="/" onClick={() =>setactive(prevactive => !prevactive)} className='transition gap-1 flex items-center  hover:bg-purple-700 px-4 py-4 rounded-tl-md rounded-tr-md'><BsFillHouseFill className=''/>Home</Link>
           <Link to="/cars" onClick={() =>setactive(prevactive => !prevactive)} className='transition gap-1 flex items-center hover:bg-purple-700 px-4 py-4'><FaCar className=''/>Cars</Link>
