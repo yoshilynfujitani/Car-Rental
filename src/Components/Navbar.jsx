@@ -15,16 +15,16 @@ const Navbar = () => {
   
   return (
     
-    <div className="container px-4 py-4 overflow-clip">
+    <div className="container px-4 py-4  bg-white/30 backdrop-blur-sm sticky top-0">
 
-    <div className="hidden md:block lg:">
+    <div className="relative hidden md:block lg:">
       <h1>Medium</h1>
     </div>
 
 
 
       {/* Mobile */}
-      <div className="flex items-center  justify-between md:hidden">
+      <div className="w-full flex items-center  justify-between md:hidden">
         <div className="">
           <h1>Logo</h1>
         </div>
@@ -36,8 +36,8 @@ const Navbar = () => {
           </div>
       </div>
       {active && 
-      <div className="absolute w-48  left-full mt-6 bg-purple-400 rounded-md z-10 ">
-        <ul className='flex flex-col text-md text-white font-bold space-x-1'>
+      <div className="absolute right-4   mt-6 bg-purple-400 rounded-md z-10 ">
+        <ul className='flex flex-col text-md text-white font-bold '>
           <Link to="/" onClick={() =>setactive(prevactive => !prevactive)} className='transition gap-1 flex items-center  hover:bg-purple-700 px-4 py-4 rounded-tl-md rounded-tr-md'><BsFillHouseFill className=''/>Home</Link>
           <Link to="/cars" onClick={() =>setactive(prevactive => !prevactive)} className='transition gap-1 flex items-center hover:bg-purple-700 px-4 py-4'><FaCar className=''/>Cars</Link>
           <Link to="/contact" onClick={() =>setactive(prevactive => !prevactive)} className='transition  gap-1 flex items-center hover:bg-purple-700 px-4 py-4  rounded-bl-md rounded-br-md'><BsFillChatRightFill className=''/>Contact</Link>
