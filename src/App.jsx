@@ -3,6 +3,7 @@ import Navbar from "./Components/Navbar"
 import Cars from "./Pages/Cars"
 import Home from "./Pages/Home"
 import Contact from "./Pages/Contact"
+import Footer from "./Pages/Footer"
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           
         </Routes>
-  
+    <Footer/>
     </BrowserRouter>
     </>
   )
