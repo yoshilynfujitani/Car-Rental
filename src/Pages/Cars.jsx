@@ -1,35 +1,49 @@
 import React, { useState } from 'react'
 import { availableCars } from '../CarsData';
+import { Link } from 'react-router-dom';
 
 const Cars = () => {
-  const[selectedCar, setselectedCar] = useState('');
-  const[selectedBrand, setselectedBrand] = useState(null);  
+  const [selectedCar, setSelectedCar] = useState('');
+const [selectedBrand, setSelectedBrand] = useState('');
+
+const handleBrandChange = (event) => {
+  setSelectedBrand(event.target.value);
+  setSelectedCar(null);
+};
+
+const handleCarSelection = (car) => {
+  setSelectedCar(car);
+};
+
+const generateRandomCar = () => {
+  let randomIndex;
+  let randomCar;
+  do {
+    randomIndex = Math.floor(Math.random() * availableCars.length);
+    randomCar = availableCars[randomIndex];
+  } while (randomCar === selectedCar);
+  return randomCar;
+};
+
+const [handleRandomCar, setHandleRandomCar] = useState(generateRandomCar());
+
+console.log(handleRandomCar);
+
+const handlerandomcar = (car) => {
+  setSelectedBrand(car.brand);
+  setSelectedCar(car);
+  setHandleRandomCar(generateRandomCar());
+};
+
+const getAvailableCarsByBrand = (brand) => {
+  return availableCars.filter((car) => car.brand === brand);
+};
 
 
-  const handleBrandChange = (event) => {
-    setselectedBrand(event.target.value);
-    setselectedCar(null);
-  };
-
-  const handleCarSelection = (car) => {
-    setselectedCar(car);
-  };
-  const handlerandomcar = (car) =>{
-    setselectedCar(car)
-    setselectedBrand(car.brand)
-  }
-  const randomIndex = Math.floor(Math.random() * availableCars.length);
-
-  const randomcar = availableCars[randomIndex];
-
-  
 
 
-  const getAvailableCarsByBrand = (brand) => {
-    return availableCars.filter((car) => car.brand === brand);
-  };
   return (
-    <div className='px-12 '>
+    <div className='px-12 min-h-screen'>
     <h1 className='font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'>Select your car</h1>
     <select value={selectedBrand} onChange={handleBrandChange} className='border border-slate-400 rounded-md px-2 py-1 my-2'>
       <option value="">Select Brand</option>
@@ -41,7 +55,7 @@ const Cars = () => {
     {selectedBrand ? (
       <div className="">
         <h2 className='font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-pink-600 to-purple-400'>Available Cars</h2>
-        <div className='grid grid-cols-3 gap-1'> 
+        <div className='grid grid-cols-4 gap-1'> 
         
         {getAvailableCarsByBrand(selectedBrand).map((car) => (
           <button key={car.name} onClick={() => handleCarSelection(car)} className='border border-slate-400 rounded-md my-1 hover:text-transparent  bg-clip-text bg-gradient-to-r from-pink-600 to-purple-400 hover:border-slate-600'>
@@ -86,14 +100,21 @@ const Cars = () => {
           </tr>
         </tbody>
         </table>
+        <div className="flex justify-center py-4">
+        <Link to="/contact"><button className='bg-gradient-to-r from-purple-400 to-pink-600 px-4 py-2 text-white rounded-full font-semibold hover:bg-transparent'>Interested? Contact Us!</button></Link>
+        </div>
+       
         {/* Recommendations */}
-        <div className="cursor-pointer" onClick={() => handlerandomcar(randomcar)} >
+        <div className="cursor-pointer pb-10" onClick={() => handlerandomcar(handleRandomCar)} >
           <h1 className='font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-pink-600 to-purple-400 py-10'>You might also like</h1>
-          <img src={randomcar.image} alt="" />
-         <div className="flex">
-         <h1 className='text-4xl'>{randomcar.brand}</h1>
-         {randomcar.name}
+        <div className="transition shadow-md rounded-md px-4 py-2 hover:shadow-xl">
+        <img src={handleRandomCar.image} alt="" />
+         <div className="flex gap-1 ">
+         <h1 className='text-transparent text-xl bg-clip-text bg-gradient-to-r from-pink-600 to-purple-400'>{handleRandomCar.brand}</h1>
+         <p className='self-end'>{handleRandomCar.name}</p>
          </div>
+         <p className='text-md'>{handleRandomCar.trans} Transmission</p>
+        </div>
         </div>
       </div>
     ) : (<>
