@@ -36,11 +36,11 @@ const Navbar = () => {
           </div>
       </div>
       {active && 
-      <div className="absolute right-4   mt-6 bg-purple-400 rounded-md z-10 ">
-        <ul className='flex flex-col text-md text-white font-bold '>
-          <Link to="/" onClick={() =>setactive(prevactive => !prevactive)} className='transition gap-1 flex items-center  hover:bg-purple-700 px-4 py-4 rounded-tl-md rounded-tr-md'><BsFillHouseFill className=''/>Home</Link>
-          <Link to="/cars" onClick={() =>setactive(prevactive => !prevactive)} className='transition gap-1 flex items-center hover:bg-purple-700 px-4 py-4'><FaCar className=''/>Cars</Link>
-          <Link to="/contact" onClick={() =>setactive(prevactive => !prevactive)} className='transition  gap-1 flex items-center hover:bg-purple-700 px-4 py-4  rounded-bl-md rounded-br-md'><BsFillChatRightFill className=''/>Contact</Link>
+      <div className="absolute right-4   mt-6 border border-purple-400 bg-white rounded-md z-10 w-40">
+        <ul className='flex flex-col text-md text-purple-400 font-bold '>
+          <Link to="/" onClick={() =>setactive(prevactive => !prevactive)} className='transition gap-1 flex items-center  hover:bg-purple-700 px-4 py-4 rounded-tl-md rounded-tr-md hover:text-white'><BsFillHouseFill className=''/>Home</Link>
+          <Link to="/cars" onClick={() =>setactive(prevactive => !prevactive)} className='transition gap-1 flex items-center hover:bg-purple-700 px-4 py-4 hover:text-white'><FaCar className=''/>Cars</Link>
+          <Link to="/contact" onClick={() =>setactive(prevactive => !prevactive)} className='transition  gap-1 flex items-center hover:bg-purple-700 px-4 py-4  rounded-bl-md rounded-br-md hover:text-white'><BsFillChatRightFill className=''/>Contact</Link>
         </ul>
       </div>}
     </div>
