@@ -43,7 +43,7 @@ const getAvailableCarsByBrand = (brand) => {
 
 
   return (
-    <div className='px-12 min-h-screen'>
+    <div className='px-12 min-h-screen container'>
     <h1 className='font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'>Select your car</h1>
     <select value={selectedBrand} onChange={handleBrandChange} className='border border-slate-400 rounded-md px-2 py-1 my-2'>
       <option value="">Select Brand</option>
@@ -55,7 +55,7 @@ const getAvailableCarsByBrand = (brand) => {
     {selectedBrand ? (
       <div className="">
         <h2 className='font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-pink-600 to-purple-400'>Available Cars</h2>
-        <div className='grid grid-cols-4 gap-1'> 
+        <div className='grid grid-cols-4 gap-1 lg:grid-flow-row'> 
         
         {getAvailableCarsByBrand(selectedBrand).map((car) => (
           <button key={car.name} onClick={() => handleCarSelection(car)} className='border border-slate-400 rounded-md my-1 hover:text-transparent  bg-clip-text bg-gradient-to-r from-pink-600 to-purple-400 hover:border-slate-600'>
@@ -116,6 +116,7 @@ const getAvailableCarsByBrand = (brand) => {
          <p className='text-md'>{handleRandomCar.trans} Transmission</p>
         </div>
         </div>
+        <div className="hidden lg:block">Hello</div>
       </div>
     ) : (<>
     <h1 className='text-center text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 py-10'>Click available cars to view details</h1>

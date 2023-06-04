@@ -15,10 +15,17 @@ const Navbar = () => {
   
   return (
     
-    <div className="container px-4 py-4  bg-white/30 backdrop-blur-sm sticky top-0">
+    <div className="container px-4 py-4  bg-white/30 backdrop-blur-md sticky top-0 shadow-sm">
 
-    <div className="relative hidden md:block lg:">
-      <h1>Medium</h1>
+    <div className="relative hidden md:flex justify-between items-center">
+      <div className="flex ">
+      <Link to="/"> <h1 className='font-bold text-2xl'>Rent<span className='text-purple-700'>Easy</span></h1></Link>
+      </div>
+      <div className="flex items-center space-x-4">
+      <Link to="/"> <h1 className='transition text-md hover:text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 '>Home</h1></Link>
+      <Link to="/cars"> <h1 className='transition text-md hover:text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600  '>Cars</h1></Link>
+      <Link to="/contact"> <h1 className='transition text-md hover:text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600  '>Contact Us</h1></Link>
+      </div>
     </div>
 
 
@@ -29,7 +36,7 @@ const Navbar = () => {
           <h1>Logo</h1>
         </div>
           <div className="text-center">
-            <h1 className='font-bold text-2xl'>Rent<span className='text-purple-700'>Easy</span></h1>
+           <Link to="/"> <h1 className='font-bold text-2xl'>Rent<span className='text-purple-700'>Easy</span></h1></Link>
           </div>
           <div className="">
             <button onClick={() =>setactive(prevactive => !prevactive)}>{ active ? <BsXLg className='w-6 h-6'/> : <BsList className='w-6 h-6'/>}</button>
